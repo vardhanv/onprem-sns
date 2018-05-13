@@ -1,0 +1,16 @@
+{
+  "name": "on-prem-notifications",
+  "version": "1.0.0",
+  "description": "A shim for storagegrid notifications for on-prem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "npm": "^6.0.1",
+    "uuid4": "^1.0.0"
+  }
+}

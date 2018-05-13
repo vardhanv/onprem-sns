@@ -1,0 +1,16 @@
+
+if [ $# -ne 1 ]; then
+   echo "error: specify aws server public dns name where the endpoint is listening"
+   exit 1
+fi
+
+ssh ubuntu@$1 << EOF
+sudo DEBIAN_FRONTEND=noninteractive apt-get update
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install npm
+mkdir not
+cd not
+npm init --force
+npm install debug 
+npm install uuid4
+EOF

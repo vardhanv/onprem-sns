@@ -1,0 +1,9 @@
+
+
+if [ $# -ne 1 ]; then
+   echo "Error: specify AWS host"
+   echo $#
+   exit
+fi
+
+scp ./* ubuntu@$1:./not 
