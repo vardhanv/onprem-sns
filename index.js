@@ -6,7 +6,13 @@ var qs=require('querystring')
 var uuid=require('uuid4')
 const util = require('util')
 
-var sPort = 80
+
+if (process.argv.length == 2)
+   var sPort = 80
+else
+   var sPort = process.argv[2]
+
+
 
 const cmdTable = {
   "ObjectCreated:Put"  : putObject,
@@ -32,7 +38,7 @@ var httpServer = http.createServer(function(req,res) {
 
    req.on('end', () => {
 
-      let resBody = "OK"
+      let resBody = "OK\n"
       
       switch(req.method) {
          case 'HEAD': 

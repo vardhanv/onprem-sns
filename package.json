@@ -4,12 +4,14 @@
   "description": "A shim for storagegrid notifications for on-prem",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "debug": "^3.1.0",
+    "node": "^10.0.0",
     "npm": "^6.0.1",
     "uuid4": "^1.0.0"
   }

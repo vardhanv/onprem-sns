@@ -2,6 +2,10 @@
 # A Sample on-prem SNS Reciever
 
 A Skelton On-Prem AWS-SNS receiver (for StorageGRID)
+Also Available as a docker container
+```
+$ docker run -p <your-local-port>:8080 vardhanv/onprem-sns:latest
+```
 
 
 ## Demo Steps
