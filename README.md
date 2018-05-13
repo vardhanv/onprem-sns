@@ -6,6 +6,8 @@ A Skelton On-Prem AWS-SNS receiver (for StorageGRID)
 
 ## Steps
 
+### Seting up the receiver
+
 1. Create a server using ubuntu on AWS preferably use ami-b5ed9ccd
 2. Make sure you "ssh-add" your pem file, so ssh, scp etc work
 3. Open inbound port 80 into your ec2 server
@@ -22,9 +24,11 @@ $ sudo nodejs index.js
 On-prem Notifications is ready on port:  80
 ```
 
-6. Your On-Prem AWS SNS Receiver is now ready. Let's configure StorageGRID
-7. Go to your tenant page on StorageGRID
-8. Create an endpoint with the following values, and click save
+### Seting up StorageGRID
+
+1. Your On-Prem AWS SNS Receiver is now ready. Let's configure StorageGRID
+2. Go to your tenant page on StorageGRID
+3. Create an endpoint with the following values, and click save
 ```
 Display Name: S3 Notifications
 URI: http://<ec2-public-dns-name>
@@ -34,10 +38,10 @@ Secret Key: <blank>
 Certificate Validation: <Do not verify>
 ```
 
-9. You should see a test message on your SNS endpoint
+4. You should see a test message on your SNS endpoint
 
-10. Go to the bucket for which you want to configure notifications
-11. Enter the following xml string, and click save
+5. Go to the bucket for which you want to configure notifications
+6. Enter the following xml string, and click save
 ```
 <NotificationConfiguration>
     <TopicConfiguration>
@@ -49,10 +53,10 @@ Certificate Validation: <Do not verify>
 </NotificationConfiguration>
 ```
 
-12. Put or delete objects into your bucket. You should see notifications appear on your on-prem SNS receiver
+7. Put or delete objects into your bucket. You should see notifications appear on your on-prem SNS receiver
 
-13. If you find issues, report them via github
+8. If you find issues, report them via github
 
-14. Have fun, and send me $10 on my paypal account :)
+9. Have fun, and send me $10 on my paypal account :)
 
 
