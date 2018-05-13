@@ -23,10 +23,15 @@ $ cd not
 $ sudo nodejs index.js
 On-prem Notifications is ready on port:  80
 ```
+6. Your On-Prem AWS SNS Receiver is now ready. You can test reachability by
+```
+$ curl http://<ec2-public-dns-name>
+```
+
 
 ### Setting up StorageGRID
 
-1. Your On-Prem AWS SNS Receiver is now ready. Let's configure StorageGRID
+1. Let's configure StorageGRID
 2. Go to your tenant page on StorageGRID
 3. Create an endpoint with the following values, and click save
 ```
