@@ -23,8 +23,6 @@ const cmdTable = {
 var httpServer = http.createServer(function(req,res) {
 
    console.log("----------")
-   console.log(req.method)
-   //console.log(req.headers)
 
    let body = []
 
@@ -39,6 +37,8 @@ var httpServer = http.createServer(function(req,res) {
       switch(req.method) {
          case 'HEAD': 
             resBody = ""
+            console.log(req.method)
+            console.log(req.headers)
             break
 
           case 'POST':
@@ -48,7 +48,7 @@ var httpServer = http.createServer(function(req,res) {
               try { 
                   myBody.Message = JSON.parse(myBody.Message)
 
-                  console.log(util.inspect(myBody, {showHidden: false, depth: null}))
+                  //console.log(util.inspect(myBody, {showHidden: false, depth: null}))
 
                   for (let record of myBody.Message.Records) 
                     cmdTable[record.eventName]( record )
@@ -69,7 +69,8 @@ var httpServer = http.createServer(function(req,res) {
 
              break
           default:
-             console.log("Unexpected method")
+             console.log(req.method)
+             console.log(req.headers)
       }
 
       // framing the response
