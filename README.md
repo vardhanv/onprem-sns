@@ -6,7 +6,7 @@ A Skelton On-Prem AWS-SNS receiver (for StorageGRID)
 
 ## Steps
 
-### Seting up the receiver
+### Setting up the receiver
 
 1. Create a server using ubuntu on AWS preferably use ami-b5ed9ccd
 2. Make sure you "ssh-add" your pem file, so ssh, scp etc work
@@ -24,7 +24,7 @@ $ sudo nodejs index.js
 On-prem Notifications is ready on port:  80
 ```
 
-### Seting up StorageGRID
+### Setting up StorageGRID
 
 1. Your On-Prem AWS SNS Receiver is now ready. Let's configure StorageGRID
 2. Go to your tenant page on StorageGRID
