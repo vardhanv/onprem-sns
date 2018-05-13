@@ -51,6 +51,8 @@ Certificate Validation: <Do not verify>
 
 12. Put or delete objects into your bucket. You should see notifications appear on your on-prem SNS receiver
 
-13. Have fun, and send me $10 on my paypal account :)
+13. If you find issues, report them via github
+
+14. Have fun, and send me $10 on my paypal account :)
 
 
