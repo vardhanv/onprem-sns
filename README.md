@@ -4,7 +4,7 @@
 A Skelton On-Prem AWS-SNS receiver (for StorageGRID)
 
 
-## Steps
+## Demo Steps
 
 ### Setting up the receiver
 
