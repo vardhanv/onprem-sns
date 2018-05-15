@@ -57,14 +57,22 @@ function unSupportedEvent( snsRecord ) {
 
 
 var httpServer = http.createServer(function(req,res) {
-   console.log("----------")
+   console.log("Incoming msg:")
    let body = []
 
    req.on('data', (chunk) => { body.push(chunk) })
 
    req.on('end', () => {
 
-      let resBody = "OK\n"
+      let resBody = `
+<PublishResponse xmlns="http://vishnus-sns-server/">
+    <PublishResult> 
+        <MessageId>` + uuid() + `</MessageId> 
+    </PublishResult> 
+    <ResponseMetadata>
+       <RequestId>` + uuid() + `</RequestId>
+    </ResponseMetadata> 
+</PublishResponse>\n`
 
       switch(req.method) {
          case 'HEAD': 
@@ -79,18 +87,13 @@ var httpServer = http.createServer(function(req,res) {
               try { 
                   myBody.Message = JSON.parse(myBody.Message)
                   //console.log(util.inspect(myBody, {showHidden: false, depth: null}))
-                  for (let record of myBody.Message.Records) cmdTable[record.eventName]( record )
+                  for (let record of myBody.Message.Records) 
+                     (record.eventName in cmdTable) ? 
+                         cmdTable[record.eventName](record) :  unSupportedEvent (record)
 
-                 resBody = `
-                 <PublishResponse xmlns="http://vishnus-sns-server/">
-                    <PublishResult> <MessageId>` + uuid() + `</MessageId> </PublishResult> 
-                    <ResponseMetadata>
-                       <RequestId>` + uuid() + `</RequestId>
-                    </ResponseMetadata> 
-                </PublishResponse>`
              } catch (err) {
-                resBody = "Got a non-JSON Message"
-                console.log("-----" + resBody + "-----")
+                //resBody = "Got a non-JSON Message"
+                console.log("Got a non-JSON Message")
                 console.log(myBody)
              }
              break
@@ -102,7 +105,7 @@ var httpServer = http.createServer(function(req,res) {
       // framing the response
       res.writeHead(200, { 'Content-Type': 'text/plain' });
       res.end(resBody)
-      console.log("----------\n")
+      console.log("msg handling complete.")
    })
 })
 
