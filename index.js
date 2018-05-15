@@ -111,5 +111,5 @@ var httpServer = http.createServer(function(req,res) {
 
 httpServer.listen({port: sPort})
 
-console.log ("On-Prem-SNS ready on port: ", httpServer.address().port)
+console.log ("On-Prem-SNS v1.1 ready on port: ", httpServer.address().port)
 
